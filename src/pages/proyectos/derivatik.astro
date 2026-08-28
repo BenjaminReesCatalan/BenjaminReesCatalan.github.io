@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CaseStudy from '../../components/CaseStudy.astro';
+---
+
+<Layout title="Derivatik Brand | Benjamín L. Rees Catalán">
+  <Navbar />
+  <main>
+    <CaseStudy
+      category="Brand Design"
+      number="02"
+      title="Derivatik Brand"
+      description="Rediseño integral de marca para Derivatik, desde la investigación inicial con el equipo directivo hasta la entrega de un manual de marca completo e implementado en su nuevo sitio web."
+      rol="Brand & UI Designer"
+      year="2025"
+      focus={["Diseño", "Marca", "Investigación"]}
+      painTitle="El dolor"
+      painText="<p>Derivatik se posicionaba como líder tecnológico en el sector financiero, pero su identidad visual no lo respaldaba. El logo anterior era tosco, poco legible en formatos pequeños y transmitía una imagen anticuada, alejada del arquetipo de gobernante y autoridad que la marca buscaba proyectar según los principios de psicología del color.</p><p>A esto se sumaba un problema estructural: no existía un manual de marca ni una guía de estilos que garantizara consistencia entre materiales, y tampoco había vectores del logo disponibles para su uso correcto en distintos formatos.</p><p>El cambio fue impulsado directamente por el presidente de la empresa, en el marco de un proceso de rebranding paralelo al desarrollo de su nuevo sitio web, con un objetivo claro de negocio: atraer nuevos clientes y repositionarse como referente tecnológico dentro de la industria financiera.</p>"
+      processTitle="El proceso"
+      processText="<p>El rediseño comenzó con entrevistas al presidente de la empresa y a la gerente de Diseño y Procesos, para entender su visión del rebranding y los objetivos detrás del cambio. A partir de esa información, realicé un benchmark de competidores nacionales e internacionales, analizando el uso de color, formas y tipografía predominantes en la industria tecnológica y financiera actual.</p><p>Con esa base, comencé por el diseño del isotipo. Exploré más de 10 conceptos distintos, que fueron filtrados progresivamente hasta llegar a 3 propuestas finales. El concepto ganador combina la letra 'D' con el símbolo de programación &lt;/&gt;, representando la esencia tecnológica de Derivatik como una empresa que automatiza procesos para otras organizaciones.</p><p>Definido el logo, avancé hacia la paleta de color, guiándome por los principios de psicología del color y el arquetipo del gobernante que la marca buscaba proyectar.</p>"
+      solutionTitle="La solución"
+      solutionText="<p>El proyecto concluyó con un manual de marca corporativo completo, que incluye paleta de colores, guía de uso del color, logo, tipografía, iconografía, plantillas de PowerPoint, tarjetas de presentación y lineamientos de aplicación en distintos formatos.</p><p>El nuevo sitio web de Derivatik ya opera con la identidad visual actualizada. El proyecto, desarrollado en un periodo aproximado de dos meses, logró el objetivo central del cliente: modernizar la imagen de la empresa y consolidar una identidad que respalde su posicionamiento como líder tecnológico en la industria financiera.</p>"
+      prevProject={{ slug: "/proyectos/afc", name: "AFC Chile", category: "Product Design" }}
+      nextProject={{ slug: "/proyectos/fullmarathon", name: "Fullmarathon Web Page", category: "Graphic Design" }}
+      coverImage="/images/proyectos/portada derivatik brand.png"
+    >
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="/images/proyectos/nuevo logo.png" alt="Nuevo logo" class="gallery-image" />
+          <h3 class="gallery-item-title">Nuevo logo</h3>
+          <p class="gallery-item-desc">Descomposición del logo de Derivatik.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/colores primarios.png" alt="Colores primarios" class="gallery-image" />
+          <h3 class="gallery-item-title">Colores primarios</h3>
+          <p class="gallery-item-desc">Gama de los principales colores de la compañía.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/tipografia.png" alt="Tipografía" class="gallery-image" />
+          <h3 class="gallery-item-title">Tipografía</h3>
+          <p class="gallery-item-desc">Tipografía para títulos y textos.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/tarjetas de presentación.png" alt="Tarjetas de presentación" class="gallery-image" />
+          <h3 class="gallery-item-title">Tarjetas de presentación</h3>
+          <p class="gallery-item-desc">Ejemplo de tarjeta de presentación empresarial.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/antiguo vs nuevo logo.png" alt="Antiguo vs nuevo logo" class="gallery-image" />
+          <h3 class="gallery-item-title">Antiguo vs nuevo logo</h3>
+          <p class="gallery-item-desc">Comparación directa entre el logo antiguo de Derivatik y el nuevo diseño.</p>
+        </div>
+      </div>
+    </CaseStudy>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .gallery-item:nth-child(1) .gallery-image,
+  .gallery-item:nth-child(4) .gallery-image,
+  .gallery-item:nth-child(5) .gallery-image {
+    height: 420px;
+  }
+
+  .gallery-item:nth-child(2) .gallery-image,
+  .gallery-item:nth-child(3) .gallery-image {
+    height: 316px;
+  }
+
+  .gallery-item:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .gallery-item-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+
+  .gallery-item-desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

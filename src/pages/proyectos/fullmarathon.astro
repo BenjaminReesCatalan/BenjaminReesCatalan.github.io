@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CaseStudy from '../../components/CaseStudy.astro';
+---
+
+<Layout title="Fullmarathon Web Design | Benjamín L. Rees Catalán">
+  <Navbar />
+  <main>
+    <CaseStudy
+      category="Web Page"
+      number="03"
+      title="Fullmarathon Web Design"
+      description="Rediseño completo del sitio web de Fullmarathon, desde el research con el club hasta un sitio en producción que ya atrae nuevos corredores."
+      rol="Graphic Design"
+      year="2025"
+      focus={["Diseño", "Web", "Investigación"]}
+      painTitle="El dolor"
+      painText="<p>Fullmarathon contaba con una página web de más de 10 años de antigüedad, que ya no representaba al club ni conectaba con el público que buscaban atraer: corredores más jóvenes. El club deportivo solicitó el proyecto con un objetivo claro de reposicionamiento digital, entendiendo que un sitio web moderno podía convertirse en un canal más cercano y relevante para esa nueva generación de atletas.</p><p>Además de la renovación visual, el proyecto era una oportunidad para resolver una carencia de información: el sitio anterior no comunicaba adecuadamente datos clave como historia del club, horarios de entrenamiento e información de contacto, limitando la conexión entre el club y sus potenciales nuevos miembros.</p>"
+      processTitle="El proceso"
+      processText="<p>El proyecto inició con una entrevista al directorio del club para entender sus necesidades, dolores y expectativas respecto al nuevo sitio. A partir de ahí realicé un benchmark de mercado que permitió definir las secciones, el contenido a mostrar, la paleta de color y el estilo gráfico general.</p><p>Con esa base, diseñé un prototipo rápido de la arquitectura de información para validar con el cliente antes de avanzar. Una vez aprobado, continué con el sitemap, los wireframes y finalmente el diseño final, validando en cada etapa con el club para evitar errores de fondo al final del proceso.</p><p>Para conectar visualmente con un público más joven, apliqué tonos modernos, degradados de color, líneas dinámicas y un uso intensivo de imágenes que aligeran la carga visual, reforzando la identidad del club con elementos gráficos propios. En total diseñé 7 secciones completas, cada una con su versión responsive y mobile, trabajando de forma individual hasta la entrega de los diseños al equipo de desarrollo.</p>"
+      solutionTitle="La solución"
+      solutionText="<p>El proyecto entregó un prototipo funcional de las 7 secciones diseñadas, junto con una guía de estilos para asegurar consistencia visual en la implementación. El sitio ya se encuentra en producción, y el club quedó enormemente conforme con el resultado, logrando captar nuevos corredores a través de la página web. El diseño completo se desarrolló en un periodo de 2 semanas.</p>"
+      prevProject={{ slug: "/proyectos/derivatik", name: "Derivatik Branding", category: "Brand & UI Designer" }}
+      coverImage="/images/proyectos/portada fullmarathon web design.png"
+    >
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="/images/proyectos/sitemap.png" alt="Sitemap" class="gallery-image" />
+          <h3 class="gallery-item-title">Sitemap</h3>
+          <p class="gallery-item-desc">Sitemap de la estructura del contenido de la página web de Fullmarathon.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/wireframes digitales fullmarathon.png" alt="Wireframes digitales" class="gallery-image" />
+          <h3 class="gallery-item-title">Wireframes digitales</h3>
+          <p class="gallery-item-desc">Propuesta para el contenido y diagramación de la página web.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/diseño final desktop.png" alt="Diseño final desktop" class="gallery-image" />
+          <h3 class="gallery-item-title">Diseño final desktop</h3>
+          <p class="gallery-item-desc">Diseño final aprobado por la empresa en formato desktop.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/diseño final mobile.png" alt="Diseño final mobile" class="gallery-image" />
+          <h3 class="gallery-item-title">Diseño final mobile</h3>
+          <p class="gallery-item-desc">Diseño final adaptado para el formato mobile.</p>
+        </div>
+      </div>
+    </CaseStudy>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .gallery-item-large {
+    grid-column: span 2;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .gallery-item:nth-child(1) .gallery-image,
+  .gallery-item:nth-child(4) .gallery-image {
+    height: 420px;
+  }
+
+  .gallery-item:nth-child(2) .gallery-image,
+  .gallery-item:nth-child(3) .gallery-image {
+    height: 316px;
+  }
+
+  .gallery-item-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+
+  .gallery-item-desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

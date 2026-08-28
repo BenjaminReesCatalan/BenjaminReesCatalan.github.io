@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CaseStudy from '../../components/CaseStudy.astro';
+---
+
+<Layout title="AFC - Administradora de Fondos de Cesantía | Benjamín L. Rees Catalán">
+  <Navbar />
+  <main>
+    <CaseStudy
+      category="Product Design"
+      number="01"
+      title="Administradora de Fondos de Cesantía de Chile"
+      description="Automatización del proceso de Conflictos de Interés para AFC, desde el levantamiento de requerimientos hasta un sistema completo implementado en producción."
+      rol="UX/UI Designer"
+      year="2026"
+      focus={["Diseño", "Prototipado", "Investigación"]}
+      painTitle="El dolor"
+      painText="<p>AFC gestionaba el control de Conflictos de Interés de sus Personas Sujetas de forma completamente manual: coordinación por correos, llamadas telefónicas y planillas Excel para registrar transacciones, autorizaciones y posibles infracciones a las restricciones normativas. Este proceso disperso y sin trazabilidad centralizada generaba alta dependencia de la gestión manual, mayor riesgo de errores humanos y dificultaba la agilidad necesaria para cumplir con la reportería periódica obligatoria hacia la Superintendencia de Pensiones (SP) y la Alta Administración.</p><p>Aunque no existía una exigencia regulatoria puntual que forzara el cambio, AFC identificó de forma proactiva la necesidad de contar con una herramienta que redujera el riesgo operacional y de cumplimiento antes de que se convirtiera en un problema, dado el carácter sensible y regulado del proceso.</p>"
+      processTitle="El proceso"
+      processText="<p>El trabajo comenzó con la recepción de 5 requerimientos funcionales y 7 historias de usuario entregadas por AFC. Junto al equipo de diseño y procesos, analizamos esta documentación y generamos los workflows de cada proceso, base sobre la cual comencé a diseñar maquetas rápidas en Figma para validar visualmente las soluciones con el cliente.</p><p>Con ambos insumos avanzando en conjunto, establecimos reuniones de trabajo de 2 a 4 veces por semana con el equipo de AFC, donde se revisaban las historias de usuario refinadas junto con las maquetas en Figma, iterando de forma ágil hasta validar cada solución.</p><p>El sistema se estructuró en 5 módulos principales, cada uno con uno o más submódulos, sobre los cuales diseñé más de 50 pantallas en total. Trabajé en estrecha colaboración con 2 analistas de procesos y con el equipo de desarrollo Front-end y Back-end, asegurando que cada decisión de diseño fuera técnicamente viable e implementable.</p>"
+      solutionTitle="La solución"
+      solutionText="<p>El proyecto culminó con la entrega de un sistema completo y funcional, respaldado por prototipos de alta fidelidad, un Design System propio del proyecto, historias de usuario documentadas y un manual de uso para facilitar su adopción por parte de los equipos de AFC.</p><p>El sistema se encuentra actualmente en producción, siendo utilizado por AFC para la gestión integral de Conflictos de Interés, tras un proceso de diseño y desarrollo de aproximadamente 4 meses.</p>"
+      coverImage="/images/proyectos/portada afc.png"
+      nextProject={{ slug: "/proyectos/derivatik", name: "Derivatik Branding", category: "Brand & UI Designer" }}
+    >
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="/images/proyectos/Wireframes digitales.png" alt="Wireframes digitales" class="gallery-image" />
+          <h3 class="gallery-item-title">Wireframes digitales</h3>
+          <p class="gallery-item-desc">Creación de las primeras pantallas para definir las funciones del producto.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/guia de estilos.png" alt="Guía de estilos" class="gallery-image" />
+          <h3 class="gallery-item-title">Guía de estilos</h3>
+          <p class="gallery-item-desc">Extracto de la guía de estilos creada para el proyecto de la AFC.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/pantallas finales.png" alt="Pantallas finales" class="gallery-image" />
+          <h3 class="gallery-item-title">Pantallas finales</h3>
+          <p class="gallery-item-desc">Diseño final de las pantallas del sistema.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/proyectos/prototipado de alta definicion.png" alt="Prototipado de alta definición" class="gallery-image" />
+          <h3 class="gallery-item-title">Prototipado de alta definición</h3>
+          <p class="gallery-item-desc">Captura de pantalla demostrativo de las conexiones del prototipado.</p>
+        </div>
+      </div>
+    </CaseStudy>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .gallery-item:nth-child(1) .gallery-image,
+  .gallery-item:nth-child(4) .gallery-image {
+    height: 420px;
+  }
+
+  .gallery-item:nth-child(2) .gallery-image,
+  .gallery-item:nth-child(3) .gallery-image {
+    height: 316px;
+  }
+
+  .gallery-item-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+
+  .gallery-item-desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

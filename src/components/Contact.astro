@@ -1,0 +1,305 @@
+---
+---
+<section id="contacto" class="contact section">
+  <div class="contact-bg">
+    <video class="contact-video" autoplay muted loop playsinline>
+      <source src="/images/footer/fondo_footer.mp4" type="video/mp4" />
+    </video>
+    <div class="contact-overlay"></div>
+  </div>
+
+  <div class="container contact-container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2 class="section-title contact-title">Contáctame</h2>
+        <h3 class="contact-heading">
+          <span class="highlight-yellow">¿Creemos algo</span>
+          <span class="highlight-yellow">memorable</span>
+          <span><span class="highlight-yellow">juntos</span>?</span>
+        </h3>
+        <p class="contact-text">
+          ¡Envíame un mensaje para comenzar a vivir esta nueva aventura en conjunto!
+        </p>
+
+        <div class="contact-details">
+          <a href="mailto:benjamin.reescatalan@gmail.com" class="contact-link">
+            <img src="/images/footer/envelope-regular.svg" alt="" class="contact-icon" />
+            benjamin.reescatalan@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/benjamín-lien-rees-calatán/" target="_blank" class="contact-link">
+            <img src="/images/footer/Social Icons.svg" alt="" class="contact-icon" />
+            LinkedIn
+          </a>
+          <a href="tel:+56999995141" class="contact-link">
+            <img src="/images/footer/phone-solid-full.svg" alt="" class="contact-icon" />
+            +56 9 9999 5141
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-side">
+        <h3 class="form-title">Escríbeme</h3>
+        <div class="contact-form-wrapper">
+          <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Nombre y apellido</label>
+            <input type="text" id="name" name="name" placeholder="¿Cómo te llamas?" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Teléfono</label>
+            <input type="tel" id="phone" name="phone" placeholder="Tu contacto" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo</label>
+            <input type="email" id="email" name="email" placeholder="tú@correo.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Asunto</label>
+            <input type="text" id="subject" name="subject" placeholder="¿De qué quieres hablar?" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4" placeholder="Coméntame sobre tu proyecto, idea o necesidad..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn submit-btn">
+            Enviar mensaje
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<style>
+  .contact {
+    position: relative;
+    overflow: hidden;
+    background-color: #F3F5F8;
+  }
+
+  .contact-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .contact-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .contact-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .form-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 24px;
+  }
+
+  .contact-form-side {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-heading {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .highlight-yellow {
+    color: var(--color-primary);
+  }
+
+  .contact-heading span:last-child {
+    color: var(--color-accent);
+  }
+
+  .contact-heading span:last-child .highlight-yellow {
+    color: var(--color-accent);
+  }
+
+  .contact-text {
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-top: 8px;
+    font-weight: 550;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    margin-top: auto;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--color-primary);
+  }
+
+  .contact-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  .contact-form-wrapper {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--color-text);
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .submit-btn {
+    align-self: flex-start;
+    margin-top: 8px;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    padding: 12px 24px;
+  }
+
+  .submit-btn:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .form-title {
+      font-size: 2.5rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .contact-heading {
+      font-size: 2rem;
+    }
+
+    .contact-form-wrapper {
+      padding: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,260 @@
+---
+---
+<section class="hero">
+  <div class="hero-deco-left">
+    <img src="/images/hero/Elementos fondo amarillos01.png" alt="" class="deco-img deco-1" />
+    <img src="/images/hero/Elementos fondo amarillos02.png" alt="" class="deco-img deco-2" />
+  </div>
+
+  <div class="container hero-container">
+    <div class="hero-content">
+      <span class="hero-badge">¡Hola!</span>
+      <h1 class="hero-title">
+        Soy <span class="hero-name">Benjamín L. Rees Catalán</span>
+        <span class="hero-dot"></span>
+      </h1>
+      <p class="hero-subtitle">UX/UI Designer / Product Designer / Product Owner</p>
+
+      <div class="hero-description">
+        <p>
+          <strong>Ingeniero en Diseño de Productos</strong> de la <strong>Universidad Técnica Federico Santa María</strong>, con <strong> Diplomado en UX </strong> de la <strong> Pontificia Universidad Católica de Chile </strong>, con experiencia en investigación y diseño de experiencias digitales para plataformas SaaS.
+        </p>
+        <p>
+          He liderado procesos de entrevistas con usuarios, definición de flujos, wireframes y prototipos, aplicando principios de diseño centrado en el usuario. He diseñado y optimizado más de 300 interfaces web, implementando Design Systems y prototipos de alta fidelidad en Figma.
+        </p>
+        <p>
+          Me destaco por tener un enfoque colaborativo con equipos multidisciplinarios y capacidad de entender los dolores de los usuarios, para diseñar centrado en el usuario.
+        </p>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#portafolio" class="btn btn-primary">
+          Ver proyectos
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17l9.2-9.2M17 17V7H7" />
+          </svg>
+        </a>
+        <a href="#contacto" class="btn btn-outline">Hablemos</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="/images/hero/foto de perfil.png" alt="Benjamín L. Rees Catalán" class="hero-photo" />
+    </div>
+  </div>
+
+  <div class="hero-location">
+    <span class="location-text">Viña del Mar, Chile</span>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-top: 120px;
+    padding-bottom: 40px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-light) 100%);
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content {
+    max-width: 900px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 4px 24px;
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-primary);
+    color: var(--color-text);
+    border-radius: 50px;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .hero-name {
+    color: var(--color-primary);
+  }
+
+  .hero-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .hero-description {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .hero-description p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .hero-description strong {
+    color: var(--color-accent);
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+  }
+
+  .hero-ctas .btn-primary {
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .hero-ctas .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: #FFFFFF;
+  }
+
+  .hero-ctas .btn-outline {
+    border-color: var(--color-primary);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  .hero-ctas .btn-outline:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: var(--color-bg);
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: -160px;
+  }
+
+  .hero-photo {
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero-deco-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .deco-img {
+    position: absolute;
+    opacity: 0.8;
+  }
+
+  .deco-1 {
+    top: 500px;
+    left: -20px;
+    width: 100px;
+  }
+
+  .deco-2 {
+    bottom: 60px;
+    left: 0px;
+    width: 180px;
+  }
+
+  .hero-location {
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-accent);
+    padding: 12px 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .location-text {
+    display: block;
+    text-align: left;
+    padding-left: calc((100vw - var(--max-width)) / 2 + 24px);
+    color: var(--color-bg);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: 100px;
+    }
+
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 100%;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-ctas {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      order: -1;
+    }
+
+    .hero-photo {
+      max-width: 280px;
+    }
+
+    .hero-deco-left {
+      display: none;
+    }
+
+    .hero-location {
+      text-align: center;
+    }
+  }
+</style>

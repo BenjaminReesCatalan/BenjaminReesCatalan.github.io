@@ -1,0 +1,167 @@
+---
+const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/#portafolio", label: "Portafolio" },
+  { href: "/#contacto", label: "Contacto" },
+  { href: "/sobre-mi", label: "Sobre mí" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="logo">
+      <img src="/images/navbar/BRC logo.png" alt="BR" class="logo-img" />
+    </a>
+
+    <div class="nav-right">
+      <div class="nav-links">
+        {navLinks.map((link) => (
+          <a href={link.href} class={`nav-link ${currentPath === link.href ? 'active' : ''}`}>{link.label}</a>
+        ))}
+      </div>
+
+      <a href="/images/navbar/UXUIDesigner&ProductOwner-BenjamínReesCatalan-CV_2026.pdf" class="btn btn-primary nav-cta" download>
+        Descargar CV
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+      </a>
+    </div>
+
+    <button class="mobile-menu-btn" aria-label="Menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 100%;
+    max-width: 1350px;
+    padding: 0 24px;
+  }
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 0 24px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 40px;
+    width: auto;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-link {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+    padding: 6px 0;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+
+  .nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .nav-cta {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-cta:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .mobile-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      top: 0;
+      padding: 0 16px;
+    }
+
+    .navbar-container {
+      border-radius: 0;
+      height: 56px;
+    }
+
+    .nav-right {
+      display: none;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+    }
+  }
+</style>

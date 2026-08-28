@@ -1,0 +1,748 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const experience = [
+  {
+    period: "2023 - 2026",
+    role: "UX/UI Designer",
+    company: "Derivatik",
+    description: "Diseñé y optimicé más de 300 interfaces para plataformas financieras, <strong>mejorando la usabilidad general y la consistencia visual</strong> para Penta Financiero, alineando los patrones de Design System y mejorando la experiencia en plataformas web.<br><br><strong>Lideré la creación e implementación del Design System de Derivatik</strong>, definiendo componentes reutilizables, variantes, estilos, grillas y lineamientos de uso para asegurar consistencia visual, escalabilidad y una colaboración eficiente con el equipo de desarrollo.<br><br>Rediseñé la <strong>experiencia de usuario</strong> y la interfaz web de Derivatik, <strong>optimizando flujos clave</strong> y reduciendo pasos innecesarios y modernicé la interfaz visual.<br><br><strong>Actualicé la identidad visual de Derivatik</strong> y supervisé el proyecto de actualización de la web, alineando la identidad visual con objetivos estratégicos de negocio.<br><br><strong>Lideré el diseño UX/UI</strong> del proyecto para AFC, diseñando 49 pantallas de alta fidelidad y siendo responsable de la <strong>creación del Design System, guía de estilos, componentes, assets y prototipos interactivos</strong>. Traduje requisitos e historias de usuario en soluciones funcionales, trabajando en estrecha colaboración con ingenieros de procesos, desarrolladores Front-end y Back-end para asegurar una implementación consistente."
+  },
+  {
+    period: "2023",
+    periodClass: "highlight-yellow",
+    role: "Product Owner & UX Designer",
+    company: "Innova360",
+    description: "Realicé investigación con usuarios, <strong>definí flujos de interacción</strong> y <strong>diseñé wireframes y prototipos de alta fidelidad</strong>. Mi trabajo contribuyó a una experiencia más intuitiva y alineada con las necesidades del cliente interno.<br><br>Diseñé de <strong>nuevas funcionalidades</strong> para la plataforma i360, validando con usuarios internos.<br><br>Apliqué <strong>metodologías ágiles</strong> y <strong>principios de diseño centrado en el usuario</strong> para mejorar la experiencia en de la plataforma i360 entornos corporativos."
+  },
+  {
+    period: "2021 - 2023",
+    role: "Project Management & Community Manager",
+    company: "Innova360 / Anglo American",
+    description: "<strong>Gestioné +10 proyectos de innovación interna</strong>, facilitando talleres con stakeholders y asegurando el cumplimiento de objetivos UX.<br><br>Generé <strong>material gráfico y visual</strong> para difusión del programa Mente de Anglo American.<br><br>Coordine <strong>capacitaciones de usuarios</strong> y <strong>diseñé material gráfico e instructivos</strong> para la adopción del programa Mente de Anglo American."
+  }
+];
+
+const education = [
+  {
+    period: "2025",
+    title: "Diplomado en UX: Diseño y Medición",
+    institution: "Pontificia Universidad Católica de Chile"
+  },
+  {
+    period: "2022",
+    title: 'Curso "Introducción al diseño UX"',
+    institution: "Ethan Parry"
+  },
+  {
+    period: "2021",
+    title: 'Curso "Scrum Fundamental Certified"',
+    institution: "SCRUMstudy"
+  },
+  {
+    period: "2015 - 2020",
+    title: "Ingeniería en Diseño de Productos",
+    institution: "Universidad Técnica Federico Santa María, Valparaíso, Chile"
+  },
+  {
+    period: "2011 - 2012",
+    title: "Estudios de intercambio",
+    institution: "Lycée Saint-Exupéry, Lyon, Francia"
+  }
+];
+
+const skills = {
+  uxui: [
+    { name: "IA para diseño", level: 95 },
+    { name: "Diseño responsive", level: 100 },
+    { name: "Definición de flujos, wireframes y journey maps", level: 90 },
+    { name: "Sistemas de diseño", level: 90 },
+    { name: "Reglas de espaciado, grillas y consistencia visual", level: 100 },
+    { name: "Prototipado de alta fidelidad y baja fidelidad", level: 95 }
+  ],
+  software: [
+    { name: "Figma (Avanzado)", level: 95, icon: "/images/sobre-mi/figma logo.svg" },
+    { name: "Miro", level: 80, icon: "/images/sobre-mi/miro logo.svg" },
+    { name: "Notion", level: 85, icon: "/images/sobre-mi/notion-brands-solid-full.svg" },
+    { name: "Adobe Illustrator", level: 75, icon: "/images/sobre-mi/Illustrator logo.svg" },
+    { name: "Adobe Photoshop", level: 65, icon: "/images/sobre-mi/Photoshop logo.svg" },
+    { name: "Claude", level: 80, icon: "/images/sobre-mi/claude logo.svg" },
+    { name: "Gemini Notebook", level: 95, icon: "/images/sobre-mi/Gemini_Notebook_icon.svg" }
+  ],
+  coding: [
+    { name: "HTML", level: 25 },
+    { name: "CSS", level: 25 }
+  ],
+  languages: [
+    { name: "Inglés", level: 75, icon: "/images/sobre-mi/GB-UKM - United Kingdom.svg" },
+    { name: "Francés", level: 90, icon: "/images/sobre-mi/FR - France.svg" }
+  ]
+};
+---
+
+<Layout title="Sobre Mí | Benjamín L. Rees Catalán">
+  <Navbar />
+  <main>
+    <section class="about-hero section">
+      <div class="about-deco-right">
+        <img src="/images/sobre-mi/Elementos fondo amarillos01.png" alt="" class="deco-img deco-1" />
+        <img src="/images/sobre-mi/Elementos fondo amarillos02.png" alt="" class="deco-img deco-2" />
+      </div>
+
+      <div class="container">
+        <div class="split-section">
+          <div class="split-left">
+            <h2 class="section-label">FORMACIÓN PROFESIONAL</h2>
+            <h1 class="about-title">
+              Desarrollo profesional centrado en las <span class="highlight-yellow">personas</span>.
+            </h1>
+          </div>
+          <div class="split-right">
+            <div class="timeline">
+              {experience.map((exp) => (
+                <div class="timeline-item">
+                  <span class={`timeline-period ${exp.periodClass || ''}`}>{exp.period}</span>
+                  <div class="timeline-content">
+                    <h3 class="timeline-role">{exp.role}</h3>
+                    <p class="timeline-company">{exp.company}</p>
+                    <p class="timeline-description" set:html={exp.description}></p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="split-section split-reverse">
+          <div class="split-left">
+            <div class="education-list">
+              {education.map((edu) => (
+                <div class="education-item">
+                  <span class="education-period">{edu.period}</span>
+                  <div class="education-content">
+                    <h3 class="education-name">{edu.title}</h3>
+                    <p class="education-institution">{edu.institution}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="split-right">
+            <h2 class="section-label text-right section-label-yellow">FORMACIÓN ACADÉMICA</h2>
+            <h2 class="education-title">
+              Cómo he adquirido mi <span class="highlight-purple">conocimiento</span> a través de los <span class="highlight-purple">estudios</span>.
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section section">
+      <div class="container">
+        <div class="skills-header">
+          <h3 class="skills-subtitle">
+            Habilidades que combinan <span class="highlight-yellow">creatividad</span> y <span class="highlight-yellow">estrategia</span>
+          </h3>
+          <div class="skills-header-right">
+            <h2 class="skills-title">Habilidades profesionales</h2>
+            <p class="skills-description">
+              Un equilibrio entre diseño, tecnología y comunicación que he construido con constancia, proyecto a proyecto y curso a curso, entendiendo que cada herramienta nueva es una forma distinta de resolver problemas reales. No se trata solo de dominar software, sino de traducir necesidades de personas y negocios en soluciones claras, funcionales y bien pensadas, cuidando cada detalle desde la idea inicial hasta la ejecución final.
+            </p>
+          </div>
+        </div>
+
+        <div class="skills-columns">
+          <div class="skills-col">
+            <div class="skill-category uxui-card">
+              <h4 class="category-badge uxui-badge">UX/UI</h4>
+              <div class="skill-bars">
+                {skills.uxui.map((skill) => (
+                  <div class="skill-item">
+                    <div class="skill-content">
+                      <div class="skill-header">
+                        <span class="skill-name">{skill.name}</span>
+                        <span class="skill-level">{skill.level}%</span>
+                      </div>
+                      <div class={`skill-bar uxui-bar ${skill.level === 100 ? 'skill-complete' : ''}`}>
+                        <div class="skill-progress" style={`width: ${skill.level}%`}></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-col">
+            <div class="skill-category">
+              <h4 class="category-badge software-badge">Software</h4>
+              <div class="skill-bars">
+                {skills.software.map((skill) => (
+                  <div class="skill-item">
+                    {skill.icon && <img src={skill.icon} alt="" class="skill-icon" />}
+                    <div class="skill-content">
+                      <div class="skill-header">
+                        <span class="skill-name">{skill.name}</span>
+                        <span class="skill-level">{skill.level}%</span>
+                      </div>
+                      <div class="skill-bar software-bar">
+                        <div class="skill-progress" style={`width: ${skill.level}%`}></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-col skills-col-stacked">
+            <div class="skill-category">
+              <h4 class="category-badge coding-badge">Coding</h4>
+              <div class="skill-bars">
+                {skills.coding.map((skill) => (
+                  <div class="skill-item">
+                    {skill.icon && <img src={skill.icon} alt="" class="skill-icon" />}
+                    <div class="skill-content">
+                      <div class="skill-header">
+                        <span class="skill-name">{skill.name}</span>
+                        <span class="skill-level">{skill.level}%</span>
+                      </div>
+                      <div class="skill-bar coding-bar">
+                        <div class="skill-progress" style={`width: ${skill.level}%`}></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4 class="category-badge language-badge">Idioma</h4>
+              <div class="skill-bars">
+                {skills.languages.map((skill) => (
+                  <div class="skill-item">
+                    {skill.icon && <img src={skill.icon} alt="" class="skill-icon" />}
+                    <div class="skill-content">
+                      <div class="skill-header">
+                        <span class="skill-name">{skill.name}</span>
+                        <span class="skill-level">{skill.level}%</span>
+                      </div>
+                      <div class="skill-bar language-bar">
+                        <div class="skill-progress" style={`width: ${skill.level}%`}></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .about-hero {
+    padding-top: 120px;
+    padding-bottom: 50px;
+    background: #F4F4F9;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1400px;
+    background: linear-gradient(to bottom, #F4F4F9 0%, #FEFEFE 50%, #F4F4F9 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .about-hero .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .about-deco-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .deco-img {
+    position: absolute;
+    width: 200px;
+    height: auto;
+  }
+
+  /* Ajusta estas propiedades para mover las imágenes */
+  .deco-1 {
+    top: 800px;
+    right: -50;
+  }
+
+  .deco-2 {
+    top: 1000px;
+    right: -50;
+  }
+
+  .split-section {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: 80px;
+  }
+
+  .split-reverse {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .split-left,
+  .split-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-label-yellow {
+    color: var(--color-primary);
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .about-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 48px;
+  }
+
+  .highlight-yellow {
+    color: var(--color-primary);
+  }
+
+  .highlight-purple {
+    color: var(--color-accent);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .timeline-item:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-period {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .timeline-period.highlight-yellow {
+    color: var(--color-primary);
+  }
+
+  .timeline-role {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .timeline-company {
+    font-size: 1.50rem;
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .timeline-description {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .education-section {
+    background: var(--color-bg-light);
+    padding: 40px;
+    border-radius: var(--border-radius);
+  }
+
+  .education-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 32px;
+    text-align: right;
+  }
+
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .education-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .education-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .education-period {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .education-item:nth-child(odd) .education-period {
+    color: var(--color-primary);
+  }
+
+  .education-item:nth-child(even) .education-period {
+    color: var(--color-accent);
+  }
+
+  .education-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .education-institution {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .skills-section {
+    background: #F4F4F9;
+    padding: 40px 0;
+  }
+
+  .skills-header {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    margin-bottom: 60px;
+    align-items: start;
+  }
+
+  .skills-header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .skills-columns {
+    display: grid;
+    grid-template-columns: 1fr 0.6fr 0.6fr;
+    gap: 120px;
+    align-items: start;
+  }
+
+  .skills-col {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .skills-col-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .skills-col-stacked .skill-category:last-child {
+    margin-top: 110px;
+  }
+
+  .skills-title {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+  }
+
+  .skills-subtitle {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .skills-description {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .uxui-card {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 36px !important;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .skill-category {
+    padding: 0;
+  }
+
+  .uxui-card .category-badge {
+    margin-bottom: 24px;
+  }
+
+  .uxui-card .skill-bars {
+    padding: 0;
+  }
+
+  .category-badge {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 24px;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .uxui-badge {
+    background-color: var(--color-primary);
+  }
+
+  .software-badge {
+    background-color: #6155F5;
+  }
+
+  .coding-badge {
+    background-color: var(--color-accent);
+  }
+
+  .language-badge {
+    background-color: #F97316;
+  }
+
+  .skill-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .skill-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .skill-name {
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .skill-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    margin-top: 4px;
+  }
+
+  .skill-level {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .skill-bar {
+    height: 4px;
+    background: var(--color-border);
+    border-radius: 2px;
+    position: relative;
+    margin: 6px 0;
+  }
+
+  .skill-bar::before,
+  .skill-bar::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--color-border);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .skill-bar::before {
+    left: -5px;
+  }
+
+  .skill-bar::after {
+    right: -5px;
+  }
+
+  .skill-progress {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+
+  .uxui-bar .skill-progress {
+    background: var(--color-primary);
+  }
+
+  .uxui-bar::before {
+    background: var(--color-primary);
+  }
+
+  .uxui-bar::after {
+    background: #E5E7EB;
+  }
+
+  .uxui-bar.skill-complete::after {
+    background: var(--color-primary);
+  }
+
+  .software-bar .skill-progress {
+    background: #6155F5;
+  }
+
+  .software-bar::before {
+    background: #6155F5;
+  }
+
+  .software-bar::after {
+    background: #E5E7EB;
+  }
+
+  .coding-bar .skill-progress {
+    background: var(--color-accent);
+  }
+
+  .coding-bar::before {
+    background: var(--color-accent);
+  }
+
+  .coding-bar::after {
+    background: #E5E7EB;
+  }
+
+  .language-bar .skill-progress {
+    background: #F97316;
+  }
+
+  .language-bar::before {
+    background: #F97316;
+  }
+
+  .language-bar::after {
+    background: #E5E7EB;
+  }
+
+  @media (max-width: 768px) {
+    .split-section,
+    .split-reverse {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .split-reverse .split-left {
+      order: 2;
+    }
+
+    .split-reverse .split-right {
+      order: 1;
+    }
+
+    .about-title {
+      font-size: 1.75rem;
+    }
+
+    .timeline-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .education-item {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .skills-header {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .skills-columns {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .skills-subtitle {
+      font-size: 4rem;
+    }
+  }
+</style>
