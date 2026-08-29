@@ -32,11 +32,27 @@ const currentPath = Astro.url.pathname;
       </a>
     </div>
 
-    <button class="mobile-menu-btn" aria-label="Menú">
+    <button class="mobile-menu-btn" aria-label="Menú" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
+  </div>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-links">
+      {navLinks.map((link) => (
+        <a href={link.href} class="mobile-menu-link">{link.label}</a>
+      ))}
+      <a href="/images/navbar/UXUIDesigner&ProductOwner-BenjamínReesCatalan-CV_2026.pdf" class="btn btn-primary nav-cta" download>
+        Descargar CV
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+      </a>
+    </div>
   </div>
 </nav>
 
@@ -145,6 +161,61 @@ const currentPath = Astro.url.pathname;
     transition: all 0.3s ease;
   }
 
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+  }
+
+  .mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px 24px;
+    gap: 4px;
+  }
+
+  .mobile-menu-link {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: color 0.3s ease;
+  }
+
+  .mobile-menu-link:hover {
+    color: var(--color-primary);
+  }
+
+  .mobile-menu .nav-cta {
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .mobile-menu.open {
+    display: block;
+  }
+
+  .mobile-menu-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
   @media (max-width: 768px) {
     .navbar {
       top: 0;
@@ -165,3 +236,22 @@ const currentPath = Astro.url.pathname;
     }
   }
 </style>
+
+<script>
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuBtn.classList.toggle('active', isOpen);
+    menuBtn.setAttribute('aria-expanded', isOpen);
+  });
+
+  mobileMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuBtn.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
