@@ -719,6 +719,7 @@ const skills = {
 
     .about-title {
       font-size: 1.75rem;
+      margin-bottom: 8px;
     }
 
     .about-deco-right {
@@ -726,17 +727,32 @@ const skills = {
     }
 
     .education-title {
-      font-size: 2rem;
+      font-size: 1.75rem;
       text-align: left;
+      margin-bottom: 0;
     }
 
     .text-right {
       text-align: left;
     }
 
+    .section-label {
+      font-size: 0.875rem;
+    }
+
     .timeline-item {
       grid-template-columns: 1fr;
       gap: 8px;
+    }
+
+    .timeline-period,
+    .timeline-period.highlight-yellow {
+      font-size: 1.125rem;
+    }
+
+    .timeline-role,
+    .timeline-company {
+      font-size: 1.25rem;
     }
 
     .education-item {
@@ -745,8 +761,28 @@ const skills = {
     }
 
     .skills-header {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 32px;
+    }
+
+    .skills-header-right {
+      display: contents;
+    }
+
+    .skills-title {
+      order: 1;
+      font-size: 0.875rem;
+    }
+
+    .skills-subtitle {
+      order: 2;
+      font-size: 1.75rem;
+    }
+
+    .skills-description {
+      order: 3;
+      font-size: 1rem;
     }
 
     .skills-columns {
@@ -754,8 +790,8 @@ const skills = {
       gap: 48px;
     }
 
-    .skills-subtitle {
-      font-size: 2rem;
+    .skills-col-stacked .skill-category:last-child {
+      margin-top: 0;
     }
   }
 </style>
