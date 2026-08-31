@@ -21,7 +21,41 @@ const { title, description = "UX/UI Designer - Portafolio de Benjamín L. Rees C
     <title>{title}</title>
   </head>
   <body>
+    <div class="custom-cursor" aria-hidden="true"></div>
     <slot />
+    <script>
+      const cursor = document.querySelector('.custom-cursor');
+      if (cursor) {
+        let visible = false;
+        const interactiveSelector = 'a, button, input, textarea, select, [role="button"], .project-card, .nav-link, .btn';
+
+        document.addEventListener('mousemove', (e) => {
+          if (!visible) {
+            visible = true;
+            cursor.style.opacity = '1';
+          }
+          cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+        });
+
+        document.addEventListener('mouseover', (e) => {
+          if (e.target.closest && e.target.closest(interactiveSelector)) {
+            cursor.classList.add('is-active');
+          }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+          if (e.target.closest && e.target.closest(interactiveSelector)) {
+            cursor.classList.remove('is-active');
+          }
+        });
+
+        document.addEventListener('mouseleave', () => {
+          cursor.style.opacity = '0';
+          visible = false;
+          cursor.classList.remove('is-active');
+        });
+      }
+    </script>
   </body>
 </html>
 
@@ -146,6 +180,43 @@ const { title, description = "UX/UI Designer - Portafolio de Benjamín L. Rees C
     font-weight: 550;
     border: 2px solid var(--color-accent);
     color: var(--color-accent);
+  }
+
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2147483647;
+    width: 14px;
+    height: 14px;
+    margin: -7px 0 0 -7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform;
+    transition: width 0.16s ease, height 0.16s ease, margin 0.16s ease, background 0.16s ease, opacity 0.2s ease;
+  }
+
+  .custom-cursor.is-active {
+    width: 42px;
+    height: 42px;
+    margin: -21px 0 0 -21px;
+    background: color-mix(in srgb, var(--color-accent) 25%, transparent);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    body,
+    body a,
+    body button {
+      cursor: none;
+    }
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    .custom-cursor {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
