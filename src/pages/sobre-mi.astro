@@ -93,13 +93,13 @@ const skills = {
 
       <div class="container">
         <div class="split-section">
-          <div class="split-left">
+          <div class="split-left reveal">
             <h2 class="section-label">FORMACIÓN PROFESIONAL</h2>
             <h1 class="about-title">
               Desarrollo profesional centrado en las <span class="highlight-yellow">personas</span>.
             </h1>
           </div>
-          <div class="split-right">
+          <div class="split-right reveal" style="--reveal-delay: 120ms">
             <div class="timeline">
               {experience.map((exp) => (
                 <div class="timeline-item">
@@ -116,7 +116,7 @@ const skills = {
         </div>
 
         <div class="split-section split-reverse">
-          <div class="split-left">
+          <div class="split-left reveal">
             <div class="education-list">
               {education.map((edu) => (
                 <div class="education-item">
@@ -129,7 +129,7 @@ const skills = {
               ))}
             </div>
           </div>
-          <div class="split-right">
+          <div class="split-right reveal" style="--reveal-delay: 120ms">
             <h2 class="section-label text-right section-label-yellow">FORMACIÓN ACADÉMICA</h2>
             <h2 class="education-title">
               Cómo he adquirido mi <span class="highlight-purple">conocimiento</span> a través de los <span class="highlight-purple">estudios</span>.
@@ -142,18 +142,18 @@ const skills = {
     <section class="skills-section section">
       <div class="container">
         <div class="skills-header">
-          <h3 class="skills-subtitle">
+          <h3 class="skills-subtitle reveal">
             Habilidades que combinan <span class="highlight-yellow">creatividad</span> y <span class="highlight-yellow">estrategia</span>
           </h3>
           <div class="skills-header-right">
             <h2 class="skills-title">Habilidades profesionales</h2>
-            <p class="skills-description">
+            <p class="skills-description reveal">
               Un equilibrio entre diseño, tecnología y comunicación que he construido con constancia, proyecto a proyecto y curso a curso, entendiendo que cada herramienta nueva es una forma distinta de resolver problemas reales. No se trata solo de dominar software, sino de traducir necesidades de personas y negocios en soluciones claras, funcionales y bien pensadas, cuidando cada detalle desde la idea inicial hasta la ejecución final.
             </p>
           </div>
         </div>
 
-        <div class="skills-columns">
+        <div class="skills-columns reveal">
           <div class="skills-col">
             <div class="skill-category uxui-card">
               <h4 class="category-badge uxui-badge">UX/UI</h4>

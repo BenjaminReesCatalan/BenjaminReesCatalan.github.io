@@ -46,7 +46,7 @@ const projects = [
 <section id="portafolio" class="portfolio section">
   <div class="container">
     <div class="portfolio-header">
-      <h2 class="section-title">Portafolio</h2>
+      <h2 class="section-title reveal">Portafolio</h2>
       <div class="portfolio-filters">
         {filters.map((filter) => (
           <button
@@ -62,15 +62,15 @@ const projects = [
       </div>
     </div>
 
-    <h3 class="section-subtitle">
+    <h3 class="section-subtitle reveal">
       Trabajos que convierten dolores en <span class="highlight">soluciones</span>.
     </h3>
 
-    <p class="portfolio-note">*Hay información confidential protegida.</p>
+    <p class="portfolio-note reveal">*Hay información confidential protegida.</p>
 
     <div class="projects-grid">
-      {projects.map((project) => (
-        <article class={`project-card ${project.imagePosition === 'left' ? 'reverse' : ''}`} data-category={project.category}>
+      {projects.map((project, index) => (
+        <article class={`project-card ${project.imagePosition === 'left' ? 'reverse' : ''} reveal`} data-category={project.category} style={`--reveal-delay: ${index * 100}ms`}>
           <div class="project-content">
             <div class="project-tags">
               {project.tags.map((tag) => (

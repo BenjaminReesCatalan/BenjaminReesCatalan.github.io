@@ -55,6 +55,20 @@ const { title, description = "UX/UI Designer - Portafolio de Benjamín L. Rees C
           cursor.classList.remove('is-active');
         });
       }
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
     </script>
   </body>
 </html>
@@ -203,6 +217,31 @@ const { title, description = "UX/UI Designer - Portafolio de Benjamín L. Rees C
     height: 42px;
     margin: -21px 0 0 -21px;
     background: color-mix(in srgb, var(--color-accent) 25%, transparent);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0ms),
+      transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0ms),
+      filter 0.7s ease var(--reveal-delay, 0ms);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
   }
 
   @media (hover: hover) and (pointer: fine) {
