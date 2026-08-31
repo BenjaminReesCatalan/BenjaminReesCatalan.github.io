@@ -300,8 +300,35 @@ const projects = [
   }
 
   @media (max-width: 768px) {
-    .portfolio-header {
+    .portfolio .container {
+      display: flex;
       flex-direction: column;
+    }
+
+    .portfolio-header {
+      display: contents;
+    }
+
+    .section-title {
+      order: 1;
+    }
+
+    .section-subtitle {
+      order: 2;
+    }
+
+    .portfolio-note {
+      order: 3;
+      margin-bottom: 16px;
+    }
+
+    .portfolio-filters {
+      order: 4;
+      margin-bottom: 24px;
+    }
+
+    .projects-grid {
+      order: 5;
     }
 
     .project-card,
