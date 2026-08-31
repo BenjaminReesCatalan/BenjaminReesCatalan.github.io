@@ -225,7 +225,7 @@
     .hero-container {
       grid-template-columns: 1fr;
       gap: 40px;
-      text-align: center;
+      text-align: left;
     }
 
     .hero-content {
@@ -237,13 +237,12 @@
     }
 
     .hero-ctas {
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
     }
 
     .hero-image {
       max-width: 280px;
-      margin: 0 auto;
     }
 
     .hero-photo {
@@ -255,7 +254,11 @@
     }
 
     .hero-location {
-      text-align: center;
+      text-align: left;
+    }
+
+    .location-text {
+      padding-left: 24px;
     }
   }
 </style>
