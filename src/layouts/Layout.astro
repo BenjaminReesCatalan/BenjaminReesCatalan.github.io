@@ -70,6 +70,61 @@ const { title, description = "UX/UI Designer - Portafolio de Benjamín L. Rees C
       );
 
       document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reducedMotion && !/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        const html = document.documentElement;
+        html.style.scrollBehavior = 'auto';
+        let target = window.scrollY || document.documentElement.scrollTop;
+        let current = target;
+        let raf = null;
+        let wheelBusy = false;
+
+        const lerp = (a, b, n) => a + (b - a) * n;
+        const ease = 0.07;
+
+        const update = () => {
+          current = lerp(current, target, ease);
+          if (Math.abs(target - current) < 0.5) current = target;
+          window.scrollTo(0, current);
+          if (Math.abs(target - current) > 0.5) {
+            raf = requestAnimationFrame(update);
+          } else {
+            raf = null;
+            wheelBusy = false;
+          }
+        };
+
+        window.addEventListener(
+          'wheel',
+          (e) => {
+            e.preventDefault();
+            target = Math.min(
+              Math.max(target + e.deltaY, 0),
+              document.documentElement.scrollHeight - window.innerHeight
+            );
+            if (!raf) {
+              current = window.scrollY || document.documentElement.scrollTop;
+              raf = requestAnimationFrame(update);
+            }
+            wheelBusy = true;
+          },
+          { passive: false }
+        );
+
+        window.addEventListener('keydown', (e) => {
+          const keys = ['PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'Home', 'End'];
+          if (keys.includes(e.key)) {
+            e.preventDefault();
+            const amt = e.key === 'PageDown' ? window.innerHeight : e.key === 'PageUp' ? -window.innerHeight : e.key === 'ArrowDown' ? 120 : e.key === 'ArrowUp' ? -120 : e.key === 'Home' ? -document.documentElement.scrollHeight : document.documentElement.scrollHeight;
+            target = Math.min(Math.max(target + amt, 0), document.documentElement.scrollHeight - window.innerHeight);
+            if (!raf) {
+              current = window.scrollY || document.documentElement.scrollTop;
+              raf = requestAnimationFrame(update);
+            }
+          }
+        });
+      }
     </script>
   </body>
 </html>
