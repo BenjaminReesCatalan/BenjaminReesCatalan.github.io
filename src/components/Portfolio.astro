@@ -335,10 +335,29 @@ const projects = [
     .project-card.reverse {
       grid-template-columns: 1fr;
       direction: ltr;
+      padding: 24px;
     }
 
     .project-card.reverse > * {
       direction: ltr;
+    }
+
+    .badge {
+      padding: 6px 10px;
+      white-space: nowrap;
+    }
+
+    .project-title {
+      font-size: 2rem;
+    }
+
+    .project-btn {
+      margin-top: 16px;
+      align-self: flex-start;
+    }
+
+    .project-image {
+      min-width: 0;
     }
 
     .project-number {
