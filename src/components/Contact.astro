@@ -40,7 +40,9 @@
       <div class="contact-form-side reveal" style="--reveal-delay: 120ms">
         <h3 class="form-title">Escríbeme</h3>
         <div class="contact-form-wrapper">
-          <form class="contact-form">
+          <form class="contact-form" id="contact-form">
+            <input type="hidden" name="access_key" value="3d274555-6540-43cf-a959-d43cf20ac517" />
+            <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
           <div class="form-group">
             <label for="name">Nombre y apellido</label>
             <input type="text" id="name" name="name" placeholder="¿Cómo te llamas?" autocomplete="name" required />
@@ -73,6 +75,7 @@
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
         </form>
       </div>
     </div>
@@ -285,6 +288,36 @@
     transform: translateY(-2px);
   }
 
+  .submit-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-status {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 10px 14px;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .form-status.is-success {
+    color: #1e7e34;
+    background: rgba(30, 126, 52, 0.12);
+    border: 1px solid rgba(30, 126, 52, 0.3);
+  }
+
+  .form-status.is-error {
+    color: #b02a37;
+    background: rgba(176, 42, 55, 0.1);
+    border: 1px solid rgba(176, 42, 55, 0.3);
+  }
+
+  .form-status.is-sending {
+    color: var(--color-text-secondary);
+    background: rgba(113, 125, 150, 0.12);
+  }
+
   @media (max-width: 768px) {
     .contact-title {
       margin: 0;
@@ -319,3 +352,50 @@
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const submitBtn = form?.querySelector('.submit-btn');
+
+  if (form && status) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      if (!data.access_key || data.access_key === 'AQUI_TU_ACCESS_KEY') {
+        status.textContent = 'El formulario aún no está conectado. Escríbeme directo a benjamin.reescatalan@gmail.com';
+        status.hidden = false;
+        status.className = 'form-status is-error';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      status.hidden = false;
+      status.textContent = 'Enviando...';
+      status.className = 'form-status is-sending';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (json.success) {
+          status.textContent = '¡Mensaje enviado! Gracias por escribirme, te responderé pronto.';
+          status.className = 'form-status is-success';
+          form.reset();
+        } else {
+          throw new Error(json.message || 'Error al enviar');
+        }
+      } catch (err) {
+        status.textContent = 'No se pudo enviar el mensaje. Intenta de nuevo o escríbeme a benjamin.reescatalan@gmail.com';
+        status.className = 'form-status is-error';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>
